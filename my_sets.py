@@ -11,7 +11,8 @@ set3 = {(1, 2, 3), (4,), (5, 6)}
 set4 = {1, 2, "tree", (7, 9)}
 set5 = set([0, 0, 5, 7, 9])
 set6 = set()  # empty
-print(f"{set4}\t{set5}\t{set6}")
+set7 = {i ** 2 for i in range(10)}  # set generator
+print(f"{set4}\t{set5}\t{set6}\t{set7}")
 print("-------------")
 
 # operators
@@ -22,11 +23,14 @@ print("operator - :", set1 - set4)
 print("operator ^ :", set1 ^ set4)
 print("operator <= : ", set1 <= {1, 2, 3, 4, 5, 6, 7})
 print("operator >= : ", {1, 2, 3, 4, 5, 6, 7} >= set1)
+print("operator == : ", (set1 == {1, 2, 3, 4}, set1 == {1, 2, 3}))
+print("operator != : ", (set1 != {1, 2, 3, 4}, set1 != {1, 2, 3}))
 print("-------------")
 
 # built-in functions
 print("type() function: ", type(set1))
 print("length: ", len(set1))
+print("set() function: ", set([1, 1, 0, 6, 7, 4, 9, 0, 9, 0, 5]))
 print("-------------")
 
 # methods
@@ -53,7 +57,7 @@ print("intersection() method: ", res)
 res = set1.difference(set4)  # difference() - equal operator -
 print("difference() method: ", res)
 
-res = set1.symmetric_difference(set4)  # symmetric_difference()
+res = set1.symmetric_difference(set4)  # symmetric_difference() - equal operator ^
 print("symmetric_difference() method: ", res)
 
 res = set2.copy()  # copy()
@@ -68,6 +72,18 @@ print("issubset() method: ", res)
 
 res = set1.issuperset({1, 2})  # issuperset() - equal operator >=
 print("issuperset() method: ", res)
+
+set1.update({5, 4, 7, 9})  # update() - equal operator |=
+print("update() method:", set1)
+
+set1.intersection_update(set5)  # intersection_update() - equal operator &=
+print("intersection_update() method: ", set1)
+
+set1.difference_update({5})  # difference_update() - equal operator -=
+print("difference_update() method: ", set1)
+
+set1.symmetric_difference_update({1, 9, 0})  # symmetric_difference_update() - equal operator ^=
+print("symmetric_difference_update() method: ", set1)
 print("-------------")
 
 # frozenset
