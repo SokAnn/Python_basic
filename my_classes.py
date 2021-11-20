@@ -14,17 +14,33 @@ class Vehicle:
     """ documentation string (optional) """
 
     # static attributes of class
-    vehicle_count = 0  # counter of instances
+    vehicle_count = 0  # count of instances
+    # encapsulation: examples of public attributes, protected attributes & private attributes
+    public_attr = "public"
+    _protected_attr = "protected"
     __private_attr = "private"  # private attribute: attribute cannot be called outside of class
 
     def __init__(self, color, doors, vtype):  # constructor - basic method
         # self - pointer to an instance
         # dynamic attributes of class (instance of class)
+        # public attributes: examples
         self.color = color  # attributes
         self.doors = doors
         self.vtype = vtype
+        # private attributes: examples
+        # self.__color = color
+        # self.__doors = doors
+        # self.__vtype = vtype
         Vehicle.vehicle_count += 1
         print(f"init {self.vtype}")
+
+    # setter method
+    def set_private_attr(self):
+        pass
+
+    # getter method
+    def get_private_attr(self):
+        pass
 
     # methods drive() & brake()
     def drive(self):
@@ -43,9 +59,10 @@ class Vehicle:
         print(f"del {self.vtype}")
 
 
-class Car(Vehicle):  # inheritance: Vehicle - superclass (parent), Car - subclass (child)
-    # redefine method
-    def brake(self):  # polymorphism: same interface Vehicle.brake() & Car.brake()
+# inheritance: Vehicle - superclass (parent), Car - subclass (child)
+class Car(Vehicle):
+    # polymorphism: same interface Vehicle.brake() & Car.brake()
+    def brake(self):  # redefine method
         return "BRAKING!!!"
 
 
